@@ -47,7 +47,7 @@ class MarksManager:
 
         for student in self.students:
             mark = float(input(f"Enter mark for {student.name} ({course_name}): "))
-            mark = math.floor(mark * 10) / 10  # Rounding down to one decimal place
+            mark = math.floor(mark * 10) / 10  
             student.marks[course_id] = mark
 
     def list_courses(self):
@@ -82,7 +82,7 @@ class MarksManager:
         gpa = 0
         total_credits = 0
         for course_id, mark in student.marks.items():
-            credit = 3  # Assuming each course has 3 credits
+            credit = 3 
             gpa += mark * credit
             total_credits += credit
         return gpa / total_credits
