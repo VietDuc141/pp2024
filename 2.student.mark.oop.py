@@ -96,4 +96,6 @@ class MarksManager:
                 break
             else:
                 print("Invalid choice")
-
+if __name__ == '__main__':
+    marks_manager = MarksManager()
+    marks_manager.main()
