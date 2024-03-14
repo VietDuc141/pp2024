@@ -81,3 +81,4 @@ def main():
             break
         else:
             print("Invalid choice")
+main()
