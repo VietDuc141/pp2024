@@ -4,4 +4,3 @@ class Student:
         self.name = name
         self.dob = dob
         self.marks = {}
-    

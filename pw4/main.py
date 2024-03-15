@@ -1,11 +1,13 @@
-from input import input_students, input_courses
-from domains.mark import  MarksManager
+from input import Input_Manage
+from output import Output_Manage
 from domains.student import Student
 from domains.course import Course
+from domains.mark_manager import MarksManager
 
-def main(self):
-    self.input_students()
-    self.input_courses()
+def main():
+    mask = MarksManager()
+    Input_Manage.input_students(mask)
+    Input_Manage.input_courses(mask)
     while True:
         print("1. Input marks")
         print("2. List students")
@@ -15,24 +17,28 @@ def main(self):
         print("6. Exit")
         choice = input("Enter choice: ")
         if choice == '1':
-            self.input_marks()
+            Input_Manage.input_marks(mask)
         elif choice == '2':
-            self.list_students()
+            Output_Manage.list_students(mask)
         elif choice == '3':
-            self.list_courses()
+            Output_Manage.list_courses(mask)
         elif choice == '4':
-            self.show_marks()
+            Output_Manage.show_marks(mask)
         elif choice == '5':
             student_id = input("Enter student ID: ")
             found = False
-            for student in self.students:
+            for student in mask.students:
                 if student.id == student_id:
                     found = True
-                    print("Average GPA:", self.calculate_gpa(student))
+                    print("Average GPA:", mask.calculate_gpa(student))
                     break
             if not found:
                 print("Student not found.")
+            pass
         elif choice == '6':
             break
         else:
-            print("Invalid choice")
+            print("Invalid choice") 
+
+if __name__ == "__main__":
+    main()
